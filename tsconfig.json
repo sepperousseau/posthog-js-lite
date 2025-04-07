@@ -1,18 +1,23 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
-    "esModuleInterop": true,
-    "jsx": "react-native",
-    "lib": ["ESNext"],
     "module": "ESNext",
-    "moduleResolution": "node16",
-    "noEmitOnError": true,
-    "outDir": "./lib",
-    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "removeComments": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "target": "es2020",
     "sourceMap": true,
+    "noEmit": false,
+    "incremental": true,
     "strict": true,
-    "target": "ES2018"
+    "baseUrl": "./", // this must be specified if "paths" is specified.
+    "rootDir": "./",
+    "lib": ["ES2020", "ES2022.Error"],
+    "jsx": "react"
   },
-  "include": ["index.ts", "src/**/*.ts", "src/**/*.tsx"]
+  "exclude": ["**/dist/**", "node_modules", "dist", "**/*.spec.*"]
 }
