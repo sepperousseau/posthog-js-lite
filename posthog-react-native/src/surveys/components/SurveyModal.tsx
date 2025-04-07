@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { Modal, Pressable, StyleSheet, TouchableWithoutFeedback, View } from 'react-native'
+import { KeyboardAvoidingView, Modal, Pressable, StyleSheet, TouchableWithoutFeedback, View } from 'react-native'
 
 import { Cancel } from './Cancel'
 import { ConfirmationMessage } from './ConfirmationMessage'
@@ -61,6 +61,7 @@ export function SurveyModal(props: SurveyModalProps): JSX.Element | null {
         onPress={onClose}
         accessible={false}
       >
+      <KeyboardAvoidingView behavior={'padding'} style={{ marginBottom: insets.bottom + 10, marginHorizontal: 10 }}>
         <TouchableWithoutFeedback accessible={false}>
           <View
             style={[
@@ -87,6 +88,7 @@ export function SurveyModal(props: SurveyModalProps): JSX.Element | null {
             </View>
           </View>
         </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
       </Pressable>
     </Modal>
   )
@@ -96,7 +98,7 @@ const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     marginHorizontal: 20,
   },
   modalContent: {
